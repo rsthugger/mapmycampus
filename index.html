@@ -9,15 +9,53 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
-        #threeDMapContainer {
-            display: none;
+        /* Leaflet Map */
+        #map {
+            height: 600px;
             margin-top: 1rem;
         }
 
-        iframe {
+        /* Modal styles */
+        #threeDMapContainer {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6);
+        }
+
+        #threeDMapContainer .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 10px;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        #threeDMapContainer iframe {
             width: 100%;
             height: 500px;
             border: none;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #888;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            color: black;
         }
 
         #show3DMapBtn {
@@ -26,20 +64,14 @@
     </style>
 </head>
 <body>
-    <h1>
-        IIRS Campus.
-    </h1>
-
-    <h3>
-        Zoom in and scan the Map Image to view 3D Model in AR. <br>
-        Scroll Down and Click the button to view 3D model.
-    </h3>
     <div id="map"></div>
-    <button id="arBtn">Enter AR</button>
-    <button id="show3DMapBtn">Show 3D Map</button>
 
+    <!-- 3D Map Modal -->
     <div id="threeDMapContainer">
-        <iframe src="3d_map.html"></iframe>
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <iframe src="3d_map.html"></iframe>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
@@ -49,10 +81,21 @@
     <script>
         const show3DMapBtn = document.getElementById("show3DMapBtn");
         const mapContainer = document.getElementById("threeDMapContainer");
+        const closeBtn = document.querySelector(".close-btn");
 
         show3DMapBtn.addEventListener("click", () => {
-            mapContainer.style.display = mapContainer.style.display === "none" ? "block" : "none";
-            show3DMapBtn.textContent = mapContainer.style.display === "block" ? "Hide 3D Map" : "Show 3D Map";
+            mapContainer.style.display = "block";
+        });
+
+        closeBtn.addEventListener("click", () => {
+            mapContainer.style.display = "none";
+        });
+
+        // Close modal if clicking outside the modal content
+        window.addEventListener("click", (e) => {
+            if (e.target === mapContainer) {
+                mapContainer.style.display = "none";
+            }
         });
     </script>
 </body>

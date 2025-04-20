@@ -1,42 +1,52 @@
-#map {
-    height: 100vh;
-    width: 100%;
-  }
-  button#arBtn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+  /* Leaflet Map */
+  #map {
+    height: 600px;
+    margin-top: 1rem;
+}
+
+/* Modal styles */
+#threeDMapContainer {
+    display: none;
+    position: fixed;
     z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+}
+
+#threeDMapContainer .modal-content {
+    background-color: #fff;
+    margin: 5% auto;
     padding: 10px;
-    background: white;
-    border: 1px solid #aaa;
-    border-radius: 6px;
-  }
+    width: 90%;
+    max-width: 800px;
+    border-radius: 8px;
+    position: relative;
+}
 
-  .leaflet-popup-content-wrapper {
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
-    font-family: 'Segoe UI', sans-serif;
-  }
+#threeDMapContainer iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+}
 
-  .leaflet-popup-content {
-    margin: 10px;
-    font-size: 14px;
-    color: #333;
-  }
+.close-btn {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #888;
+    cursor: pointer;
+}
 
-  .leaflet-popup-tip {
-    background: white;
-  }
+.close-btn:hover {
+    color: black;
+}
 
-  .popup-content h3 {
-    margin: 0 0 5px 0;
-    font-size: 16px;
-    color: #2c3e50;
-  }
-
-  .popup-content p {
-    margin: 0;
-    line-height: 1.4;
-  }
+#show3DMapBtn {
+    margin-top: 1rem;
+}

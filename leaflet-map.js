@@ -55,6 +55,23 @@ fetch('data/roads.geojson').then(r => r.json()).then(data => {
     window.roads = roadGeoJSON; // for routing.js
 });
 
+const customControl = L.control({ position: 'topright' }); // You can use 'topleft', 'topright', 'bottomleft', or 'bottomright'
+
+customControl.onAdd = function () {
+    const div = L.DomUtil.create('div', 'custom-map-overlay');
+    div.innerHTML = `
+        <h1>IIRS Campus.</h1>
+        <h3 style="font-weight: normal;">
+            Zoom in and scan the Map Image to view 3D Model in AR.<br>
+            Scroll Down and Click the button to view 3D model.
+        </h3>
+        <button id="show3DMapBtn">Show 3D Map</button>
+    `;
+    return div;
+};
+
+customControl.addTo(map);
+
 
 // User location
 navigator.geolocation.getCurrentPosition(pos => {
