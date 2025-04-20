@@ -1,4 +1,4 @@
-const map = L.map('map').setView([30.34, 70.04], 18);
+const map = L.map('map',{zoomControl:false}).setView([30.34, 70.04], 18);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
 // Load boundary with opaque white and restrict map view to it
