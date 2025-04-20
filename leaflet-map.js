@@ -1,16 +1,22 @@
-const map = L.map('map').setView([23.8809, 70.214], 18);
+const map = L.map('map').setView([30.34, 70.04], 18);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
-// Load boundary with opaque white
+// Load boundary with opaque white and restrict map view to it
 fetch('data/boundary.geojson').then(r => r.json()).then(data => {
-    L.geoJSON(data, {
-      style: {
-        color: '#000000',
-        weight: 2,
-        fillColor: '#ffffff',
-        fillOpacity: 1.0
-      }
+    const boundaryLayer = L.geoJSON(data, {
+        style: {
+            color: '#000000',
+            weight: 2,
+            fillColor: '#ffffff',
+            fillOpacity: 1.0
+        }
     }).addTo(map);
+
+    // Fit map to boundary and set max bounds to clip map view
+    const bounds = boundaryLayer.getBounds();
+    map.fitBounds(bounds);
+    map.setMaxBounds(bounds);
+    map.options.maxBoundsViscosity = 1.0; // Prevent dragging outside
 });
 
 // Function to get random color for the buildings
@@ -35,8 +41,8 @@ fetch('data/buildings.geojson').then(r => r.json()).then(data => {
             const type = feature.properties?.Type || "Unknown";
             layer.bindPopup(`<strong>${name}</strong><br>Type: ${type}`);
 
-            // Add permanent tooltip (label) for each building
-            layer.bindTooltip(name, { permanent: false, direction: 'center' }); // Show name as a permanent label
+            // Add tooltip (label) for each building
+            layer.bindTooltip(name, { permanent: false, direction: 'center' });
 
             layer.on('click', () => {
                 const coords = turf.center(feature).geometry.coordinates;
@@ -55,25 +61,25 @@ fetch('data/roads.geojson').then(r => r.json()).then(data => {
     window.roads = roadGeoJSON; // for routing.js
 });
 
-const customControl = L.control({ position: 'topright' }); // You can use 'topleft', 'topright', 'bottomleft', or 'bottomright'
+// Add static overlay info box and button to launch 3D map
+const customControl = L.control({ position: 'topright' });
 
 customControl.onAdd = function () {
     const div = L.DomUtil.create('div', 'custom-map-overlay');
     div.innerHTML = `
-        <h1>IIRS Campus.</h1>
-        <h3 style="font-weight: normal;">
-            Zoom in and scan the Map Image to view 3D Model in AR.<br>
-            Scroll Down and Click the button to view 3D model.
+        <h1 style="margin: 0 0 5px 0;">IIRS Campus</h1>
+        <h3 style="font-weight: normal; margin: 0 0 10px 0;">
+            Zoom in and scan the map image to view 3D Model in AR.<br>
+            Click below to open the 3D model.
         </h3>
-        <a href='3d_map.html' target='_blank'><button id="show3DMapBtn">Show 3D Map</button></a>
+        <a href='3d_map.html' target='_blank' style="padding: 6px 10px; background: #3367D6; color: white; text-decoration: none; border-radius: 4px;">Show 3D Map</a>
     `;
     return div;
 };
 
 customControl.addTo(map);
 
-
-// User location
+// Get user's current location
 navigator.geolocation.getCurrentPosition(pos => {
     const { latitude, longitude } = pos.coords;
     L.marker([latitude, longitude]).addTo(map).bindPopup("You are here").openPopup();
