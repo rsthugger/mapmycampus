@@ -65,7 +65,7 @@ customControl.onAdd = function () {
             Zoom in and scan the Map Image to view 3D Model in AR.<br>
             Scroll Down and Click the button to view 3D model.
         </h3>
-        <button id="show3DMapBtn">Show 3D Map</button>
+        <a href='3d_map.html' target='_blank'><button id="show3DMapBtn">Show 3D Map</button></a>
     `;
     return div;
 };
