@@ -36,7 +36,7 @@ fetch('data/buildings.geojson').then(r => r.json()).then(data => {
             layer.bindPopup(`<strong>${name}</strong><br>Type: ${type}`);
 
             // Add permanent tooltip (label) for each building
-            layer.bindTooltip(name, { permanent: true, direction: 'center' }); // Show name as a permanent label
+            layer.bindTooltip(name, { permanent: false, direction: 'center' }); // Show name as a permanent label
 
             layer.on('click', () => {
                 const coords = turf.center(feature).geometry.coordinates;
