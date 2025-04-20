@@ -10,12 +10,46 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body>
-    <div id="map"></div>
+    <div id="map"></div>  <!-- Leaflet map (Campus AR Navigation) -->
+    
+    <!-- Dropdown Button to toggle the 3D map -->
+    <button class="dropdown-btn" onclick="toggleMap()">Show 3D Map</button>
+
+    <!-- The dropdown content (map container for Plotly 3D map) -->
+    <div id="map-container" class="dropdown-content">
+        <!-- Embed the 3D map HTML in an iframe -->
+        <iframe src="3d_map.html" width="100%" height="500px" style="border:none;"></iframe>
+    </div>
+
+    <!-- AR Button -->
     <button id="arBtn">Enter AR</button>
 
+    <!-- External JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
-
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script type="module" src="./main.js"></script>
+
+    <script type="module">
+        // Function to toggle the visibility of the 3D map container
+        function toggleMap() {
+            const mapContainer = document.getElementById('map-container');
+            mapContainer.classList.toggle('expanded');
+            const buttonText = mapContainer.classList.contains('expanded') ? 'Hide 3D Map' : 'Show 3D Map';
+            document.querySelector('.dropdown-btn').textContent = buttonText;
+        }
+
+        // Leaflet map for Campus AR Navigation (you can customize as needed)
+        const map = L.map('map').setView([28.7041, 77.1025], 16);  // Coordinates for Delhi (adjust as needed)
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Add AR button behavior (if applicable, you'd have to define the actual AR logic)
+        document.getElementById('arBtn').addEventListener('click', function () {
+            alert("AR mode is not implemented yet!");
+            // Implement AR activation logic here
+        });
+    </script>
+
 </body>
 </html>
