@@ -1,0 +1,33 @@
+{
+"type": "FeatureCollection",
+"name": "points",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "name": "Parking area", "Type": "Others" }, "geometry": { "type": "Point", "coordinates": [ 78.046341415818361, 30.341203585578551 ] } },
+{ "type": "Feature", "properties": { "name": "Childrens Park", "Type": "Others" }, "geometry": { "type": "Point", "coordinates": [ 78.047126578588333, 30.340955332412562 ] } },
+{ "type": "Feature", "properties": { "name": "Ansari sir room", "Type": "Others" }, "geometry": { "type": "Point", "coordinates": [ 78.046536801945436, 30.340383879335963 ] } },
+{ "type": "Feature", "properties": { "name": "Sudikin Room", "Type": "Student room" }, "geometry": { "type": "Point", "coordinates": [ 78.046439108881884, 30.339770266170706 ] } },
+{ "type": "Feature", "properties": { "name": "Advaith room", "Type": "Student room" }, "geometry": { "type": "Point", "coordinates": [ 78.046392071480923, 30.339878000058246 ] } },
+{ "type": "Feature", "properties": { "name": "Chahal sir room", "Type": "Student room" }, "geometry": { "type": "Point", "coordinates": [ 78.04629076015577, 30.339870193258783 ] } },
+{ "type": "Feature", "properties": { "name": "Badminton court", "Type": "Others" }, "geometry": { "type": "Point", "coordinates": [ 78.046498810198528, 30.339929524919064 ] } },
+{ "type": "Feature", "properties": { "name": "Play ground", "Type": "Others" }, "geometry": { "type": "Point", "coordinates": [ 78.046013963142414, 30.340404176906755 ] } },
+{ "type": "Feature", "properties": { "name": "Swimming pool", "Type": "Others" }, "geometry": { "type": "Point", "coordinates": [ 78.047170902293061, 30.340369827169106 ] } },
+{ "type": "Feature", "properties": { "name": "Rocket fountain", "Type": "Others" }, "geometry": { "type": "Point", "coordinates": [ 78.047659367610819, 30.34094440301342 ] } },
+{ "type": "Feature", "properties": { "name": "Badminton court", "Type": "Others" }, "geometry": { "type": "Point", "coordinates": [ 78.046165025564761, 30.34125354840377 ] } },
+{ "type": "Feature", "properties": { "name": "GITDL", "Type": "Dept" }, "geometry": { "type": "Point", "coordinates": [ 78.043862906613839, 30.3408753135692 ] } },
+{ "type": "Feature", "properties": { "name": "prsd", "Type": "Dept" }, "geometry": { "type": "Point", "coordinates": [ 78.044032964909633, 30.340803491722401 ] } },
+{ "type": "Feature", "properties": { "name": "gsd", "Type": "Dept" }, "geometry": { "type": "Point", "coordinates": [ 78.043971454462223, 30.340834718618783 ] } },
+{ "type": "Feature", "properties": { "name": "Directors office", "Type": "Dept" }, "geometry": { "type": "Point", "coordinates": [ 78.044257297129633, 30.340691074812931 ] } },
+{ "type": "Feature", "properties": { "name": "PPEG", "Type": "Dept" }, "geometry": { "type": "Point", "coordinates": [ 78.044365844978017, 30.34065360248108 ] } },
+{ "type": "Feature", "properties": { "name": "WRD", "Type": "Dept" }, "geometry": { "type": "Point", "coordinates": [ 78.044271770176081, 30.340637989005248 ] } },
+{ "type": "Feature", "properties": { "name": "FED", "Type": "Dept" }, "geometry": { "type": "Point", "coordinates": [ 78.044047437956081, 30.340597393956426 ] } },
+{ "type": "Feature", "properties": { "name": "ASD", "Type": "Dept" }, "geometry": { "type": "Point", "coordinates": [ 78.044004018816736, 30.340556798890756 ] } },
+{ "type": "Feature", "properties": { "name": "midas lab", "Type": "Dept" }, "geometry": { "type": "Point", "coordinates": [ 78.043913562276416, 30.340447504399531 ] } },
+{ "type": "Feature", "properties": { "name": "PRSD Lab", "Type": "Dept" }, "geometry": { "type": "Point", "coordinates": [ 78.043815869212878, 30.340884681632286 ] } },
+{ "type": "Feature", "properties": { "name": "Head Academics office", "Type": "Dept" }, "geometry": { "type": "Point", "coordinates": [ 78.043794159643127, 30.340060288648608 ] } },
+{ "type": "Feature", "properties": { "name": "GID", "Type": "Dept" }, "geometry": { "type": "Point", "coordinates": [ 78.043800491600948, 30.340114155447612 ] } },
+{ "type": "Feature", "properties": { "name": "GID lab", "Type": "Dept" }, "geometry": { "type": "Point", "coordinates": [ 78.043960599677334, 30.340203152702752 ] } },
+{ "type": "Feature", "properties": { "name": "DL office and Studio", "Type": "Dept" }, "geometry": { "type": "Point", "coordinates": [ 78.04375254963459, 30.340119620193679 ] } },
+{ "type": "Feature", "properties": { "name": "MASD", "Type": "Dept" }, "geometry": { "type": "Point", "coordinates": [ 78.044185836462773, 30.34067624201662 ] } }
+]
+}
